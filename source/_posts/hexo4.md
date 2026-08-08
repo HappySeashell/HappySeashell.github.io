@@ -1,6 +1,7 @@
 ---
 title: 使用Hexo搭建博客（四）：文章写作
 date: 2021-09-29 00:13:32
+updated: 2021-12-01 03:33:14
 tags:
 - hexo
 - markdown
@@ -958,4 +959,3 @@ pdf.js或pdf文件的加载可能会被 CORS 策略阻止。如果要从其他�
 效果：
 {% pdf https://www.unicef.cn/sites/unicef.org.china/files/2019-04/Atlas%202018%20final%20CN.pdf %}
 {% endnote %}
-

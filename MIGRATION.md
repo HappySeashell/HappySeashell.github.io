@@ -23,6 +23,48 @@ validation. Its legacy customizations are committed on the theme's
 Do not create a remote repository, push commits, or configure GitHub Pages
 until the locally upgraded site has been reviewed and explicitly approved.
 
+## Local upgrade result
+
+- Runtime: Node.js 24.18.0 LTS
+- Generator: Hexo 8.1.2
+- Theme: NexT 8.28.0 on the nested theme branch `local/hexo8-upgrade`
+- Clean install: `npm ci --registry=https://registry.npmjs.org`
+- Build: 74 generated files; content processing completes in about one second
+- Route comparison: all 41 legacy HTML routes are retained
+- Static validation: no missing local targets or unrendered Hexo tags
+- Production dependency audit: 0 known vulnerabilities
+
+The abandoned network-fetching `hexo-tag-blog-card` and vulnerable
+`hexo-filter-emoji` packages were replaced by local compatibility scripts.
+Existing `{% blogCard %}`, `{% emoji %}`, and `:smile:` source syntax remains
+supported without performing network requests during the build.
+
+Run locally with the pinned Node version:
+
+```powershell
+npm ci
+npm run build
+npm run validate
+npm run server
+```
+
+The preview server is intentionally bound to `127.0.0.1`.
+
+## Known external-service status
+
+- Waline renders correctly with its compatible v2 client, but its remote
+  LeanCloud application reports that it is archived. Restore the application
+  in LeanCloud before expecting comments or counts to load.
+- The Artitalk page loads, but `source/shuoshuo/index.md` contains `SECRET`
+  placeholders instead of the original App ID and App Key, so it currently
+  shows Artitalk's default example content.
+- Album metadata, tabs, lazy loading, and images work after restoring the
+  missing jQuery-before-Bootstrap dependency order.
+- Wardrobe query and submission interfaces render. No login, submission, ACL
+  change, or other external write was performed during local validation.
+- The browser-visible Google and LeanCloud client keys must be restricted by
+  referrer/origin and service-side permissions before publication.
+
 ## Security notes for later publication
 
 - Review and restrict the browser-visible Google API key.

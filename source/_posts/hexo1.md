@@ -1,6 +1,7 @@
 ---
 title: 使用Hexo搭建博客（一）：前期准备与 Hexo 安装、部署
 date: 2021-09-10 13:41:25
+updated: 2021-12-01 02:34:54
 tags: hexo
 categories: 博客搭建
 description: 前期准备与 Hexo 安装、部署。系统：Windows10；Hexo版本：4.3.0；NexT版本：8.7.0

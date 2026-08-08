@@ -1,6 +1,7 @@
 ---
 title: 使用Hexo搭建博客（二）：基本操作与配置
 date: 2021-09-25 20:11:36
+updated: 2021-12-01 02:37:36
 tags: hexo
 categories: 博客搭建
 description: Hexo的基本操作与配置。系统：Windows10；Hexo版本：4.3.0；NexT版本：8.7.0
