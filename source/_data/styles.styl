@@ -29,14 +29,18 @@
 //   }
 // }
 
-/* header-页面背景 */
-.header{
+/* header-页面背景。NexT 8.28 将 header 放进全宽的 .column。 */
+.column {
   background: linear-gradient(to left, $mypurple-deep, $myyellow);
   background-position: 70% 20%;
   background-size: cover;
   @media (prefers-color-scheme: dark) {
     background-image: url($site-brand-bg-dark-url);
   }
+}
+
+header.header {
+  background: transparent;
 }
 
 body {

@@ -1,0 +1,155 @@
+# Local NexT customization, separated from the upstream theme defaults.
+minify: true
+
+custom_file_path:
+  sidebar: source/_data/sidebar.njk
+  postMeta: source/_data/post-meta.njk
+  postBodyEnd: source/_data/post-body-end.njk
+  bodyEnd: source/_data/body-end.njk
+  variable: source/_data/variables.styl
+  mixin: source/_data/mixins.styl
+  style: source/_data/styles.styl
+
+scheme: Mist
+darkmode: true
+
+favicon:
+  small: /images/favicon-16x16-nut.png
+  medium: /images/favicon-32x32-nut.png
+  apple_touch_icon: /images/apple-touch-icon-nut.png
+  safari_pinned_tab: /images/logo-nut.svg
+
+menu:
+  home: / || fa fa-home
+  posts:
+    default: /overview/ || fa fa-archive
+    tags: tags/ || fa fa-tags
+    timeline: timeline/ || fa fa-stream
+  album: /album/ || fa fa-camera
+  服装查询:
+    default: /tools/ || fa fa-filter
+    查询指南: /direction/ || fa fa-book
+    服装统计: /statistics/ || fa fa-chart-pie
+    服装录入: /submit/ || fa fa-heart
+    comments: /comment/ || fa fa-comments
+  shuoshuo: /shuoshuo/ || fa fa-comment
+  about: /about/ || fa fa-user
+
+sidebar:
+  position: left
+
+avatar:
+  url: https://gravatar.zeruns.tech/avatar/cb53b7342068f879403aaa43f276a4e2
+  rounded: true
+  rotated: true
+
+recent_posts:
+  title: 最近更新
+  icon: fa fa-history
+  max_count: 5
+
+category_full:
+  enable: true
+  abstract: false
+
+footer:
+  since: 2021
+  icon:
+    name: fa fa-heart
+    animated: true
+    color: "#ff0000"
+
+calendar:
+  calendar_id: dhj5vfkheuuii2bs8ggddfdslc@group.calendar.google.com
+  api_key: AIzaSyD5FetlxXqGarWzROc9YugDVpY47nBjwNQ
+  orderBy: startTime
+  showLocation: false
+  offsetMax: 72
+  offsetMin: 4
+  timeMax: 24
+  timeMin: 8
+
+android_chrome_color: "#6c599f"
+
+codeblock:
+  theme:
+    light: monokai-sublime
+    dark: monokai-sublime
+  copy_button:
+    enable: true
+    style: mac
+
+back2top:
+  enable: true
+  sidebar: false
+  scrollpercent: true
+
+font:
+  enable: true
+  global:
+    external: true
+    family: EB Garamond, Noto Serif SC
+  title:
+    external: true
+    family: ZCOOL XiaoWei
+    size: 1.8
+  headings:
+    external: true
+    size: 1.5
+  posts:
+    external: true
+    family:
+  codes:
+    external: true
+    family:
+
+math:
+  every_page: false
+  mathjax:
+    enable: true
+    tags: ams
+  katex:
+    enable: false
+
+fancybox: true
+mediumzoom: false
+lazyload: true
+
+waline:
+  enable: true
+  serverURL: https://blog-comment-qqxibjx8l-happyseashell.vercel.app/
+  placeholder: '就差你的评论了~'
+  avatar: identicon
+  meta: [nick, mail, link]
+  pageSize: 10
+  lang: zh-CN
+  visitor: false
+  commentCount: true
+  emoji:
+    - https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/tw-emoji
+  requiredMeta: []
+  uploadImage: false
+
+busuanzi_count:
+  enable: true
+  total_visitors: true
+  total_visitors_icon: fa fa-user
+  total_views: true
+  total_views_icon: fa fa-eye
+  post_views: true
+  post_views_icon: fa fa-eye
+
+local_search:
+  enable: true
+  trigger: auto
+  top_n_per_article: 1
+  unescape: false
+  preload: false
+
+pdf:
+  enable: true
+  height: 500px
+
+mermaid:
+  enable: true
+  theme: default

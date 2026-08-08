@@ -1,6 +1,7 @@
 ---
 title: 使用Hexo搭建博客（三）：NexT 主题配置
 date: 2021-09-26 16:47:30
+updated: 2021-12-01 04:52:06
 tags:
 - hexo
 - next
@@ -1383,7 +1384,7 @@ comments: false
 
 #### 重命名评论计数文本
 
-文章开头会显示评论系统名称及评论数量。在`languages.yml`中可对其重命名: [覆盖默认翻译](/docs/theme-settings/internationalization.html#Override-Default-Translations)。
+文章开头会显示评论系统名称及评论数量。在`languages.yml`中可对其重命名: [覆盖默认翻译](https://theme-next.js.org/docs/theme-settings/internationalization.html#Override-Default-Translations)。
 
 #### 评论系统的选择
 
@@ -1886,4 +1887,3 @@ custom_file_path:
           {%- endif %}
         </div>
   ```
-
