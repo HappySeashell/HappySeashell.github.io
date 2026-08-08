@@ -44,7 +44,9 @@ function localTargetExists(rawUrl) {
 
 const legacyRoutes = routeSet(legacyDir);
 const currentRoutes = routeSet(currentDir);
-const missingLegacyRoutes = [...legacyRoutes].filter(route => !currentRoutes.has(route)).sort();
+const intentionallyReplacedRoutes = new Set(['/tools/submit/']);
+const missingLegacyRoutes = [...legacyRoutes].filter(route => !currentRoutes.has(route) && !intentionallyReplacedRoutes.has(route)).sort();
+const replacedLegacyRoutes = [...intentionallyReplacedRoutes].filter(route => legacyRoutes.has(route) && !currentRoutes.has(route)).sort();
 const addedRoutes = [...currentRoutes].filter(route => !legacyRoutes.has(route)).sort();
 const unrenderedTags = [];
 const missingLocalTargets = new Map();
@@ -74,6 +76,7 @@ const report = {
   legacyHtmlRoutes: legacyRoutes.size,
   currentHtmlRoutes: currentRoutes.size,
   missingLegacyRoutes,
+  replacedLegacyRoutes,
   addedRoutes,
   unrenderedTags,
   missingLocalTargets: Object.fromEntries([...missingLocalTargets].sort()),

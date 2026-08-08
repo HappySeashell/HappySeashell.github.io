@@ -30,7 +30,6 @@ menu:
     default: /tools/ || fa fa-filter
     查询指南: /direction/ || fa fa-book
     服装统计: /statistics/ || fa fa-chart-pie
-    服装录入: /submit/ || fa fa-heart
     comments: /comment/ || fa fa-comments
   shuoshuo: /shuoshuo/ || fa fa-comment
   about: /about/ || fa fa-user
