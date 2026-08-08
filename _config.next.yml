@@ -117,7 +117,7 @@ lazyload: true
 
 waline:
   enable: true
-  serverURL: https://blog-comment-qqxibjx8l-happyseashell.vercel.app/
+  serverURL: https://blog-comment-alpha.vercel.app/
   placeholder: '就差你的评论了~'
   avatar: identicon
   meta: [nick, mail, link]
