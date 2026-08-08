@@ -1,0 +1,11 @@
+.DS_Store
+Thumbs.db
+db.json
+*.log
+node_modules/
+public/
+.deploy*/
+migration-artifacts/
+.cache/
+# Local source archive used to generate the published album metadata.
+photos/
