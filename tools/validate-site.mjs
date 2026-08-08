@@ -3,7 +3,7 @@ import { extname, join, relative, resolve, sep } from 'node:path';
 
 const root = resolve(import.meta.dirname, '..');
 const currentDir = join(root, 'public');
-const legacyDir = join(root, 'migration-artifacts', 'legacy-public');
+const legacyDir = resolve(process.argv[2] ?? join(root, '..', 'migration', 'artifacts', 'legacy-public'));
 
 function walk(dir) {
   if (!existsSync(dir)) return [];

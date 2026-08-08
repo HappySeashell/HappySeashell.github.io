@@ -7,8 +7,9 @@ public/
 .deploy*/
 migration-artifacts/
 .cache/
-# LeanCloud exports contain user records, password hashes, session tokens,
-# comment email addresses, and IP addresses. Keep them local only.
-tools/leancloud导出数据/
-# Local source archive used to generate the published album metadata.
-photos/
+
+# Workspace-private source data lives outside this repository under
+# ../private/. Do not copy exports, credentials, or raw photo archives here.
+.env
+.env.*
+!.env.example

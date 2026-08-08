@@ -11,8 +11,9 @@ GitHub Pages deployment is created.
 - Legacy lockfile: npm lockfile version 1
 - Original site URL: `https://happyseashell.gitee.io/`
 - Permalink: `:year/:month/:day/:title/`
-- `photos/` is a 385+ MB local source archive and is intentionally ignored;
-  the published album metadata remains under `source/album/`.
+- The 385+ MB source album is stored outside the repository at
+  `../private/photos-source/`; published album metadata remains under
+  `source/album/`.
 
 The customized theme is kept as a nested local Git repository during local
 validation. Its legacy customizations are committed on the theme's
@@ -57,18 +58,19 @@ The preview server is intentionally bound to `127.0.0.1`.
   and `nikkisearch` applications are required before replacing their storage
   backends; JSONL exports are sufficient for the planned conversion because
   BSON backup export is unavailable for these archived applications.
-- JSONL exports are now stored locally under the Git-ignored
-  `tools/leancloud导出数据/` directory. The export inventory is: Waline
+- JSONL exports are stored outside every repository under
+  `../private/leancloud-exports/`. The export inventory is: Waline
   `Comment` 6 and `Users` 1; Artitalk `shuoshuo` 10, `atComment` 2 and
   `_User` 1; Nikki `wardrobe1` 19,381, `categoriesAmount` 34,
   `colorsAmount` 14 and `_User` 1. The exported `_File` classes contain no
   records, so there are no LeanCloud file objects to download for these apps.
-- Waline renders correctly with its compatible v2 client, but its remote
-  LeanCloud application reports that it is archived. Restore the application
-  in LeanCloud before expecting comments or counts to load.
-- The Artitalk page loads, but `source/shuoshuo/index.md` contains `SECRET`
-  placeholders instead of the original App ID and App Key, so it currently
-  shows Artitalk's default example content.
+- Waline now uses the independently deployed service at
+  `https://blog-comment-alpha.vercel.app/` with Supabase PostgreSQL storage.
+  Six legacy comments were imported and verified; the old LeanCloud app is no
+  longer required for live comments.
+- The Artitalk replacement is developed as the independent Momentide project
+  under `../projects/momentide/`. Until its local package is integrated, the
+  existing page remains a migration target and must not receive real secrets.
 - Album metadata, tabs, lazy loading, and images work after restoring the
   missing jQuery-before-Bootstrap dependency order.
 - Wardrobe query and submission interfaces render. No login, submission, ACL
@@ -79,7 +81,6 @@ The preview server is intentionally bound to `127.0.0.1`.
 ## Security notes for later publication
 
 - Review and restrict the browser-visible Google API key.
-- Review LeanCloud ACLs, class permissions, allowed origins, and client keys.
-- Verify the Waline and Artitalk/Workers endpoints and their allowed origins.
+- Verify the Waline and Momentide endpoints and their allowed origins.
 - Browser client keys cannot be hidden by GitHub Actions secrets; authorization
   must be enforced by the corresponding service.
