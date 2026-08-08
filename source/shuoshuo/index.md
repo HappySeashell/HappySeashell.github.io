@@ -9,7 +9,7 @@ description: 记录日常片段与随想
 <div id="artitalk_main"></div>
 <script>
 new Artitalk({
-    serverURL: 'http://127.0.0.1:3000',
+    serverURL: 'https://blog-api-mu-drab.vercel.app',
     turnstileSiteKey: '1x00000000000000000000AA',
     color1: '#CCA941',
     color2: '#544A7D',

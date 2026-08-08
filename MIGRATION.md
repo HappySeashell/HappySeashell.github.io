@@ -75,6 +75,8 @@ The preview server is intentionally bound to `127.0.0.1`.
   `source/vendor/momentide/0.1.0/`; `/shuoshuo/` points to the local backend
   and Cloudflare's public test site key until production acceptance.
 - The independently implemented shared API lives at `../projects/blog-api/`.
+- The production API is deployed at `https://blog-api-mu-drab.vercel.app`;
+  local previews now exercise this endpoint with exact-origin CORS.
   Its unit and HTTP-boundary tests pass. The isolated `momentide_*` schema was
   applied to Supabase PostgreSQL and the LeanCloud conversion imported 10
   talks and 2 comments with zero orphan relationships and zero raw email
