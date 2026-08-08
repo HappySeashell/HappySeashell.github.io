@@ -4,6 +4,7 @@ import { extname, join, relative, resolve, sep } from 'node:path';
 const root = resolve(import.meta.dirname, '..');
 const currentDir = join(root, 'public');
 const legacyDir = resolve(process.argv[2] ?? join(root, '..', 'migration', 'artifacts', 'legacy-public'));
+const legacyManifest = join(root, 'tools', 'legacy-routes.json');
 
 function walk(dir) {
   if (!existsSync(dir)) return [];
@@ -42,7 +43,9 @@ function localTargetExists(rawUrl) {
     || existsSync(join(target, 'index.html'));
 }
 
-const legacyRoutes = routeSet(legacyDir);
+const legacyRoutes = existsSync(legacyDir)
+  ? routeSet(legacyDir)
+  : new Set(JSON.parse(readFileSync(legacyManifest, 'utf8')));
 const currentRoutes = routeSet(currentDir);
 const intentionallyReplacedRoutes = new Set(['/tools/submit/']);
 const missingLegacyRoutes = [...legacyRoutes].filter(route => !currentRoutes.has(route) && !intentionallyReplacedRoutes.has(route)).sort();
