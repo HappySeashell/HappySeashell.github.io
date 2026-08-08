@@ -73,12 +73,15 @@ The preview server is intentionally bound to `127.0.0.1`.
   `source/vendor/momentide/0.1.0/`; `/shuoshuo/` points to the local backend
   and Cloudflare's public test site key until production acceptance.
 - The independently implemented API lives at `../projects/momentide-server/`.
-  Its unit and HTTP-boundary tests run without production credentials. The
-  LeanCloud converter generated 10 talks and 2 comments with zero orphan
-  relationships and zero raw email values. Applying the schema and payload to
-  Supabase remains gated on a local ignored `.env.local` containing `PG_*` and
-  freshly generated setup/security secrets; setup must not be locked before
-  those counts are checked against the database.
+  Its unit and HTTP-boundary tests pass. The isolated `momentide_*` schema was
+  applied to Supabase PostgreSQL and the LeanCloud conversion imported 10
+  talks and 2 comments with zero orphan relationships and zero raw email
+  values. One new administrator was created, password/session behavior was
+  verified, RLS and revoked direct client privileges were checked, and setup
+  was permanently locked. Before/after row hashes confirmed that all `wl_*`
+  data remained unchanged. Local credentials remain only in the ignored
+  `.env.local`; its temporary plaintext administrator password was removed
+  immediately after verification.
 - Album metadata, tabs, lazy loading, and images work after restoring the
   missing jQuery-before-Bootstrap dependency order.
 - Wardrobe query and submission interfaces render. No login, submission, ACL
