@@ -1,0 +1,4 @@
+[submodule "themes/next"]
+	path = themes/next
+	url = https://github.com/HappySeashell/hexo-theme-next.git
+	branch = local/hexo8-upgrade
