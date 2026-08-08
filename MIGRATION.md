@@ -52,6 +52,17 @@ The preview server is intentionally bound to `127.0.0.1`.
 
 ## Known external-service status
 
+- LeanCloud has announced that all public services, including its console and
+  APIs, will shut down on 2027-01-12. Full exports of the `waline`, `shuoshuo`,
+  and `nikkisearch` applications are required before replacing their storage
+  backends; JSONL exports are sufficient for the planned conversion because
+  BSON backup export is unavailable for these archived applications.
+- JSONL exports are now stored locally under the Git-ignored
+  `tools/leancloud导出数据/` directory. The export inventory is: Waline
+  `Comment` 6 and `Users` 1; Artitalk `shuoshuo` 10, `atComment` 2 and
+  `_User` 1; Nikki `wardrobe1` 19,381, `categoriesAmount` 34,
+  `colorsAmount` 14 and `_User` 1. The exported `_File` classes contain no
+  records, so there are no LeanCloud file objects to download for these apps.
 - Waline renders correctly with its compatible v2 client, but its remote
   LeanCloud application reports that it is archived. Restore the application
   in LeanCloud before expecting comments or counts to load.
