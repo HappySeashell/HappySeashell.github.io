@@ -26,12 +26,14 @@ until the locally upgraded site has been reviewed and explicitly approved.
 
 ## Local upgrade result
 
-- Runtime: Node.js 24.18.0 LTS
+- Runtime: Node.js 24.14.0 LTS
 - Generator: Hexo 8.1.2
 - Theme: NexT 8.28.0 on the nested theme branch `local/hexo8-upgrade`
 - Clean install: `npm ci --registry=https://registry.npmjs.org`
-- Build: 74 generated files; content processing completes in about one second
-- Route comparison: all 41 legacy HTML routes are retained
+- Build: 81 generated files; content processing completes in about one second
+- Route comparison: 40 legacy HTML routes are retained; the obsolete LeanCloud
+  `/tools/submit/` page is intentionally replaced by authenticated
+  `/admin/nikki/` management.
 - Static validation: no missing local targets or unrendered Hexo tags
 - Production dependency audit: 0 known vulnerabilities
 
@@ -72,7 +74,7 @@ The preview server is intentionally bound to `127.0.0.1`.
   under `../projects/momentide/`. Version 0.1.0 is vendored under
   `source/vendor/momentide/0.1.0/`; `/shuoshuo/` points to the local backend
   and Cloudflare's public test site key until production acceptance.
-- The independently implemented API lives at `../projects/momentide-server/`.
+- The independently implemented shared API lives at `../projects/blog-api/`.
   Its unit and HTTP-boundary tests pass. The isolated `momentide_*` schema was
   applied to Supabase PostgreSQL and the LeanCloud conversion imported 10
   talks and 2 comments with zero orphan relationships and zero raw email
@@ -84,10 +86,20 @@ The preview server is intentionally bound to `127.0.0.1`.
   immediately after verification.
 - Album metadata, tabs, lazy loading, and images work after restoring the
   missing jQuery-before-Bootstrap dependency order.
-- Wardrobe query and submission interfaces render. No login, submission, ACL
-  change, or other external write was performed during local validation.
-- The browser-visible Google and LeanCloud client keys must be restricted by
-  referrer/origin and service-side permissions before publication.
+- The Nikki export was converted and imported into the same PostgreSQL project:
+  19,381 items, 19,381 unique legacy IDs, 261 taxonomy values and 6 preserved
+  legacy anomalies. The migration is idempotent and before/after fingerprints
+  confirmed that Waline and Momentide rows did not change.
+- Wardrobe public search, random recommendations and live category/color
+  statistics now use Blog API. The old LeanCloud submission page was removed
+  and `/admin/nikki/` provides shared-authenticated add/edit/hide/restore tools.
+  Browser tests cover desktop/dark/mobile public views and the logged-out admin
+  boundary. The explicitly approved controlled write test verified create,
+  update, hide, restore and audit history; afterward the temporary item,
+  taxonomy, revisions and session were all zero and the identity sequence was
+  restored.
+- The Nikki LeanCloud App ID/Key and SDK were removed from generated pages. The
+  browser-visible Google key must still be restricted before publication.
 
 ## Security notes for later publication
 
