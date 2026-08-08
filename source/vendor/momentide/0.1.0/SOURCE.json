@@ -1,0 +1,9 @@
+{
+  "name": "Momentide",
+  "version": "0.1.0",
+  "repository": "https://github.com/HappySeashell/momentide",
+  "commit": "ea4297c0f127d818d057fb3f109f18de31b6b340",
+  "baseline": "HCLonely/Artitalk 4.1.0",
+  "license": "MIT",
+  "note": "Vendored for reproducible local and GitHub Pages builds; no runtime CDN dependency."
+}

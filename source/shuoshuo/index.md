@@ -2,19 +2,19 @@
 title: 说说
 date: 2021-09-02 12:02:02
 comments: false
+description: 记录日常片段与随想
 ---
-<!-- 引用 artitalk -->
-<script type="text/javascript" src="https://unpkg.com/artitalk"></script>
-<!-- 存放说说的容器 -->
+<link rel="stylesheet" href="/vendor/momentide/0.1.0/artitalk.min.css">
+<script src="/vendor/momentide/0.1.0/artitalk.min.js"></script>
 <div id="artitalk_main"></div>
 <script>
 new Artitalk({
-    serverURL:'https://leancloud.forestseashell.workers.dev',
-    appId: 'SECRET', // Your LeanCloud appId
-    appKey: 'SECRET', // Your LeanCloud appKey
+    serverURL: 'http://127.0.0.1:3000',
+    turnstileSiteKey: '1x00000000000000000000AA',
     color1: '#CCA941',
     color2: '#544A7D',
     color3: '#FFFFFF',
     pageSize: 20,
+    mediaUploadEnabled: false
 })
 </script>
