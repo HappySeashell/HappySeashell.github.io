@@ -2,8 +2,13 @@
   "name": "Momentide",
   "version": "0.1.0",
   "repository": "https://github.com/HappySeashell/momentide",
-  "commit": "ea4297c0f127d818d057fb3f109f18de31b6b340",
+  "release": "https://github.com/HappySeashell/momentide/releases/tag/v0.1.0",
+  "commit": "cc8adaa537446507588bd9817282db1c65154de1",
   "baseline": "HCLonely/Artitalk 4.1.0",
   "license": "MIT",
-  "note": "Vendored for reproducible local and GitHub Pages builds; no runtime CDN dependency."
+  "sha256": {
+    "artitalk.min.js": "6ef21b6b475997e91c94dc80a27f0f4dcc67009a4bda255a869270610c0a6e2c",
+    "artitalk.min.css": "d182cfd38ce3f695c6da56a9d83dc9b36fff63a45bb9e9f400780b2e84108733"
+  },
+  "note": "Vendored release IIFE and CSS for reproducible local and GitHub Pages builds; no runtime CDN dependency."
 }
